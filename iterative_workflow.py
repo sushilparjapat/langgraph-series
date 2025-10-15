@@ -3,7 +3,11 @@ from typing import TypedDict, Literal, Annotated
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage
 import operator
+from langchain.chat_models import init_chat_model   
+from dotenv import load_dotenv
+load_dotenv()
 
+model = init_chat_model("gpt-5-nano", temperature=0.5, model_provider="openai")
 
 generator_llm = ChatOpenAI(model='gpt-4o-mini')
 evaluator_llm = ChatOpenAI(model='gpt-4o-mini')
